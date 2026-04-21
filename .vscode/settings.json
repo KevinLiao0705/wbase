@@ -15,6 +15,6 @@
       "startOnActivation": true
     }
   ],
-
-
+  // 允許 Watch & Auto Build 任務在開啟資料夾時自動執行
+  "task.allowAutomaticTasks": "on"
 }

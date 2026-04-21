@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Maven: Package (手動)",
+            "type": "shell",
+            "command": "mvn package -DskipTests",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Maven: Watch & Auto Build",
+            "type": "shell",
+            "command": "powershell -ExecutionPolicy Bypass -File ${workspaceFolder}/.vscode/watch-build.ps1",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "showReuseMessage": false
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "problemMatcher": {
+                "owner": "maven-watch",
+                "pattern": {
+                    "regexp": "^\\[ERROR\\]\\s+(.*)$",
+                    "message": 1
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Watching for changes",
+                    "endsPattern": "^\\[\\d{2}:\\d{2}:\\d{2}\\] BUILD"
+                }
+            }
+        }
+    ]
+}
